@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import type { Film } from "../../models/models";
 
 
 
@@ -17,8 +18,16 @@ export const kinopoiskApi = createApi({
   reducerPath:'kinopoisk/api',
   baseQuery:baseQuery,
   endpoints: (build) => ({
-    getMovies: build.query<any, void>({
-      query:() => `v1.4/movie` 
+    searchUsers:build.query<Film[], string> ({
+      query:(search:string) => ({
+        url:`v1.4/movie/search`,
+        params: {
+          query:search,
+          page:1,
+          limit:10
+        }
+      }),
+      transformResponse:(response:any) => response.docs
     })
   })
 })
@@ -28,6 +37,6 @@ export const kinopoiskApi = createApi({
 
 
 
-
-export const {useGetMoviesQuery} = kinopoiskApi
-export const prefetchMovies = kinopoiskApi.endpoints.getMovies.initiate
+export const {useSearchUsersQuery} = kinopoiskApi
+// export const {useGetMoviesBySearchQuery} = kinopoiskApi
+// export const prefetchMovies = kinopoiskApi.endpoints.getMoviesBySearch.initiate

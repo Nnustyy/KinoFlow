@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { build } from "vite";
 
 
 
@@ -18,8 +17,8 @@ export const kinopoiskApi = createApi({
   reducerPath:'kinopoisk/api',
   baseQuery:baseQuery,
   endpoints: (build) => ({
-    getMovies: build.query<any, string>({
-      query:() => `movie/random` 
+    getMovies: build.query<any, void>({
+      query:() => `v1.4/movie` 
     })
   })
 })
@@ -31,3 +30,4 @@ export const kinopoiskApi = createApi({
 
 
 export const {useGetMoviesQuery} = kinopoiskApi
+export const prefetchMovies = kinopoiskApi.endpoints.getMovies.initiate

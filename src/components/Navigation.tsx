@@ -1,19 +1,18 @@
-import React, {useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import {  useSearchUsersQuery } from '../store/kinopoisk/kinopoiskApi';
+import React, { useState } from 'react';
+import {  NavLink } from 'react-router-dom';
+import { useSearchFilmsQuery } from '../store/kinopoisk/kinopoiskApi';
 import FilmSearchCard from './FilmSearchCard';
+import { useDebounce } from '../hooks/debounce';
 
 
 const Navigation = () => {
   const [search, setSearch] = useState('')
-  const {data, isError} = useSearchUsersQuery(search,{
-    skip:search.length < 3
+  const debounce = useDebounce(search);
+  const {data, isError} = useSearchFilmsQuery(debounce,{
+    skip:debounce.length < 3
   });
-  const showDropdown = search.length > 1
-
-  useEffect(() => {
-    console.log(data)
-  },[data])
+  const showDropdown = search.length > 1;
+  
 
   const clearInput = () => {
     setSearch('')
@@ -64,7 +63,7 @@ const Navigation = () => {
       </div>
       <div className=' relative min-w-2xs'>
         <input type="text" placeholder='Поиск..' value={search} onChange={(e) => setSearch(e.target.value)}  
-        className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 '
+        className='w-full px-4 py-2 rounded-lg border border-purple-400 focus:outline-none focus:ring-4 focus:ring-purple-500/50  transition-all duration-300 text-gray-700 bg-gray-100'
         />
         {search && 
         <button
@@ -78,7 +77,7 @@ const Navigation = () => {
         {showDropdown && 
         <ul className='rounded-lg mt-2 flex flex-col list-none absolute top-[42px] left-0 right-0 max-h-[200px] overflow-y-scroll shadow-md bg-white z-10 '>
           {data?.map((d) => 
-          <FilmSearchCard key={d.filmId} data={d} />
+          <FilmSearchCard data={d}  key={d.filmId}/>
           )}
         </ul>
         }

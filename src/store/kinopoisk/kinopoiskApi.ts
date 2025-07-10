@@ -17,7 +17,7 @@ export const kinopoiskApi = createApi({
   reducerPath:'kinopoisk/api',
   baseQuery:baseQuery,
   endpoints:(build) => ({
-    searchUsers: build.query<Film[], string> ({
+    searchFilms: build.query<Film[], string> ({
       query:(search:string) => ({
         url:'api/v2.1/films/search-by-keyword',
         params: {
@@ -25,7 +25,15 @@ export const kinopoiskApi = createApi({
         }
       }),
       transformResponse:(response:any) => response.films
-    }) 
+    }),
+    getFilmById: build.query<Film, string> ({
+      query:(id:string) => ({
+        url:`api/v2.1/films/${id}`,
+        params: {
+          id:id
+        }
+      })
+    })
     
   })
 })
@@ -34,4 +42,4 @@ export const kinopoiskApi = createApi({
 
 
 
-export const {useSearchUsersQuery} = kinopoiskApi
+export const {useSearchFilmsQuery,useGetFilmByIdQuery} = kinopoiskApi

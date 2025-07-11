@@ -24,17 +24,10 @@ export const kinopoiskApi = createApi({
           keyword:search
         }
       }),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       transformResponse:(response:any) => response.films
     }),
-    // getFilmById: build.query<Film, string> ({
-    //   query:(id:string) => ({
-    //     url:`api/v2.1/films/${id}`,
-    //     params: {
-    //       id:id
-    //     }
-    //   })
-    // }),
-    getFilmStaff: build.query<FilmStaff, number>({
+    getFilmStaff: build.query<FilmStaff[], number>({
       query:(filmId:number) => ({
         url:'api/v1/staff',
         params:{

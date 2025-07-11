@@ -22,14 +22,14 @@ const Navigation = () => {
 
 
   return (
-    <nav className='sticky top-0 transition-[250ms] ease-in-out duration-300 bg-[#09090c]'>
+    <nav className='sticky top-0 transition-[250ms] ease-in-out duration-300 bg-[#09090c] position: fixed; top: 0; left: 0; width: 100% '>
       {isError && <h2>Something went wrong..</h2>}
       <div className='mx-auto flex justify-between items-center py-5 max-w-full px-10'>
       <div className='flex items-center gap-24'>
       <Logo/>
       <div className='flex items-center flex-wrap gap-6'>
         <NavLinkItem to='/' children='Главная' />
-        <NavLinkItem to='/film' children='Фильмы' />
+        <NavLinkItem to='/media' children='Фильмы' />
         <NavLinkItem to='/series' children='Сериалы' />
       </div>
       </div>

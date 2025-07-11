@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Film } from "../../models/models";
+import type { Film, FilmStaff } from "../../models/models";
 
 
 const baseQuery = fetchBaseQuery({
@@ -26,11 +26,20 @@ export const kinopoiskApi = createApi({
       }),
       transformResponse:(response:any) => response.films
     }),
-    getFilmById: build.query<Film, string> ({
-      query:(id:string) => ({
-        url:`api/v2.1/films/${id}`,
-        params: {
-          id:id
+    // getFilmById: build.query<Film, string> ({
+    //   query:(id:string) => ({
+    //     url:`api/v2.1/films/${id}`,
+    //     params: {
+    //       id:id
+    //     }
+    //   })
+    // }),
+    getFilmStaff: build.query<FilmStaff, number>({
+      query:(filmId:number) => ({
+        url:'api/v1/staff',
+        params:{
+          filmId:filmId,
+          limit:10
         }
       })
     })
@@ -42,4 +51,4 @@ export const kinopoiskApi = createApi({
 
 
 
-export const {useSearchFilmsQuery,useGetFilmByIdQuery} = kinopoiskApi
+export const {useSearchFilmsQuery,useGetFilmStaffQuery} = kinopoiskApi

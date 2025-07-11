@@ -3,6 +3,8 @@ import type { Film, FilmStaff} from '../models/models';
 import { useLimitedItemsQuery } from '../hooks/limitItems';
 import ActorsSwiper from './ActorsSwiper'
 import FilmDetails from './FilmDetails';
+import { useGetFilmTrailerQuery } from '../store/kinopoisk/kinopoiskApi';
+import { useEffect } from 'react';
 
 
 
@@ -10,6 +12,11 @@ const FilmCard = () => {
   const location = useLocation();
   const film:Film = location.state.film;
   const actors:FilmStaff[]  | undefined= useLimitedItemsQuery(10,film.filmId)
+  const {data:filmTrailer} =  useGetFilmTrailerQuery(5939992)
+
+  useEffect(() => {
+    console.log(filmTrailer)
+  },[filmTrailer])
 
   return (
 <div className=" flex justify-between md:flex-row bg-gray-900 text-white p-6 shadow-lg h-screen ">

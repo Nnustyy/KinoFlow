@@ -23,6 +23,13 @@ export interface Genre {
   genre: string
 }
 
+export interface ResponseFilm {
+  keyword: string
+  pagesCount: number
+  searchFilmsCountResult: number
+  films: Film[]
+}
+
 export interface FilmStaff {
   staffId: number
   nameRu: string
@@ -33,3 +40,13 @@ export interface FilmStaff {
   professionKey: string
   }
   
+  export interface FilmTrailer {
+    url: string
+    name: string
+    site: string
+  }
+
+  export interface ResponseFilmTrailer {
+    total: number
+    items: FilmTrailer[]
+  }

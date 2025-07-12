@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NavLinkItem = ({to, children}:{to:string, children:string}) => {

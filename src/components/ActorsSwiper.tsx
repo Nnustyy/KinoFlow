@@ -6,10 +6,8 @@ const ActorsSwiper = ({actors}:{actors:FilmStaff[] | undefined}) => {
     <Swiper
     modules={[Navigation]}
     spaceBetween={1}
-    slidesPerView={4}
+    slidesPerView={5}
     navigation
-    pagination={{ clickable: true }}
-    autoplay={{ delay: 3000 }}
     loop
     >
     {actors?.map((actor) => 

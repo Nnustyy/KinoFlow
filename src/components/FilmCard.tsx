@@ -12,7 +12,7 @@ const FilmCard = () => {
   const actors= useLimitedItemsQuery(10,film.filmId)
   const {data:filmTrailer}=  useGetFilmTrailerQuery(film.filmId)
   const filmData = filmTrailer?.slice(0,1);
-  const filmUrl = filmData?.map((f) => f.url);
+  const filmUrl = filmData?.[0]?.url || '';
 
   return (
 <div className=" flex justify-between md:flex-row bg-gray-900 text-white p-6 shadow-lg h-screen ">

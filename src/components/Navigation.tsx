@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useSearchFilmsQuery } from '../store/kinopoisk/kinopoiskApi';
 import FilmSearchCard from './FilmSearchCard';
 import { useDebounce } from '../hooks/debounce';
@@ -14,7 +14,6 @@ const Navigation = () => {
     skip:debounce.length < 3
   });
   const showDropdown = search.length > 1;
-  
 
   const clearInput = () => {
     setSearch('')

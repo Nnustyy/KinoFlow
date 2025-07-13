@@ -1,4 +1,3 @@
-import React from 'react';
 import { useGetFilterFilmQuery } from '../store/kinopoisk/kinopoiskApi';
 import ContentSection from '../components/ContentSection';
 

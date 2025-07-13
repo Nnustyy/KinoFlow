@@ -12,14 +12,13 @@ KinoFlow - это современный онлайн-кинотеатр
 
 ###  Быстрый старт
 
-1
+
 ```bash
 npm install
 # или
 yarn install
 ```
 
-2 
 ```bash
 npm run dev
 # или

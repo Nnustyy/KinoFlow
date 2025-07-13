@@ -1,5 +1,6 @@
 import { useGetFilmsQuery } from '../store/kinopoisk/kinopoiskApi';
 import SwiperComponent from '../components/SwiperComponent';
+import Footer from '../components/Footer';
 
 const MainPage = () => {
 
@@ -8,6 +9,7 @@ const MainPage = () => {
       return (
     <div className='bg-gray-800'>
       <SwiperComponent dataList={filmsWithPosters} />
+        <Footer/>
     </div>
   );
 };

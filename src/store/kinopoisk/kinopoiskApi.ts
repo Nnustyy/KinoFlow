@@ -51,6 +51,15 @@ export const kinopoiskApi = createApi({
         }
       }),
       transformResponse:(response:ResponseFilm) => response.items
+    }),
+    getFilterFilm:build.query<FilmItem[],string> ({
+      query:(type:string) => ({
+        url:'api/v2.2/films',
+        params:{
+          type:type
+        }
+      }),
+      transformResponse:(response:ResponseFilm) => response.items
     })
   })
 })
@@ -59,4 +68,4 @@ export const kinopoiskApi = createApi({
 
 
 
-export const {useSearchFilmsQuery,useGetFilmStaffQuery,useGetFilmTrailerQuery,useGetFilmsQuery} = kinopoiskApi
+export const {useSearchFilmsQuery,useGetFilmStaffQuery,useGetFilmTrailerQuery,useGetFilmsQuery,useGetFilterFilmQuery} = kinopoiskApi

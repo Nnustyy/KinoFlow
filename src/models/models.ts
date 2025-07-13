@@ -70,9 +70,25 @@ export interface FilmItem {
   posterUrl: string
   posterUrlPreview: string
 }
+
+export interface FilmItem {
+  kinopoiskId: number
+  imdbId: string
+  nameRu: string
+  nameEn: string
+  nameOriginal: string
+  countries: Country[]
+  genres: Genre[]
+  ratingKinopoisk: number
+  ratingImdb: number
+  year: number
+  type: string
+  posterUrl: string
+  posterUrlPreview: string
+}
   
   export interface ResponseFilm {
     total: number
     totalPages: number
-    items: Film[]
+    items: FilmItem[]
   }

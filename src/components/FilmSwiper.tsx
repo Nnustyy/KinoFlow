@@ -1,9 +1,9 @@
 import React from 'react';
-import type { Film } from '../models/models';
+import type { FilmItem } from '../models/models';
 
 
 interface FilmSwiperProps {
-  data:Film
+  data:FilmItem
 }
 
 const FilmSwiper:React.FC<FilmSwiperProps> = ({data}) => {

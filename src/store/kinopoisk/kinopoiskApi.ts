@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Film, FilmStaff, FilmTrailer, ResponseFilm, ResponseFilmTrailer } from "../../models/models";
+import type { Film, FilmItem, FilmStaff, FilmTrailer, ResponseFilm, ResponseFilmTrailer } from "../../models/models";
 
 
 const baseQuery = fetchBaseQuery({
@@ -43,7 +43,7 @@ export const kinopoiskApi = createApi({
       }),
       transformResponse:(response:ResponseFilmTrailer) => response.items
     }),
-    getFilms: build.query<Film[],number> ({
+    getFilms: build.query<FilmItem[],number> ({
       query:(year:number) => ({
         url:'api/v2.2/films',
         params:{

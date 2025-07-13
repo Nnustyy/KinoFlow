@@ -1,10 +1,10 @@
 import FilmSwiper from './FilmSwiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
-import type { Film } from '../models/models';
+import type {  FilmItem } from '../models/models';
 
 
-const SwiperComponent = ({dataList}:{dataList:Film[]}) => {
+const SwiperComponent = ({dataList}:{dataList:FilmItem[]}) => {
   return (
     <Swiper
     modules={[Navigation,EffectCoverflow]}
@@ -28,7 +28,7 @@ const SwiperComponent = ({dataList}:{dataList:Film[]}) => {
     >
       {dataList.map((f) => 
       <SwiperSlide>
-        <FilmSwiper key={f.filmId} data={f} />
+        <FilmSwiper key={f.kinopoiskId} data={f} />
       </SwiperSlide>
         )}
       </Swiper>

@@ -1,5 +1,5 @@
 # KinoFlow - Online Cinema Platform 🎬
-kino-flow.vercel.app
+[KinoFlow](kino-flow.vercel.app)
 
 KinoFlow - это современный онлайн-кинотеатр
 
@@ -13,11 +13,15 @@ KinoFlow - это современный онлайн-кинотеатр
 ###  Быстрый старт
 
 1
+```bash
 npm install
 # или
-yarn
+yarn install
+```
 
 2 
+```bash
 npm run dev
 # или
 yarn dev
+```

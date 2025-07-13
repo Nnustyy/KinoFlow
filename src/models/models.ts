@@ -50,3 +50,9 @@ export interface FilmStaff {
     total: number
     items: FilmTrailer[]
   }
+
+  export interface ResponseFilm {
+    total: number
+    totalPages: number
+    items: Film[]
+  }

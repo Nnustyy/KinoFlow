@@ -42,6 +42,15 @@ export const kinopoiskApi = createApi({
         }
       }),
       transformResponse:(response:ResponseFilmTrailer) => response.items
+    }),
+    getFilms: build.query<Film[],number> ({
+      query:(year:number) => ({
+        url:'api/v2.2/films',
+        params:{
+          yearFrom: year
+        }
+      }),
+      transformResponse:(response:ResponseFilm) => response.items
     })
   })
 })
@@ -50,4 +59,4 @@ export const kinopoiskApi = createApi({
 
 
 
-export const {useSearchFilmsQuery,useGetFilmStaffQuery,useGetFilmTrailerQuery} = kinopoiskApi
+export const {useSearchFilmsQuery,useGetFilmStaffQuery,useGetFilmTrailerQuery,useGetFilmsQuery} = kinopoiskApi

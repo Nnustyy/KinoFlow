@@ -5,7 +5,6 @@ import type { Film, FilmItem, FilmStaff, FilmTrailer, ResponseFilm, ResponseFilm
 const baseQuery = fetchBaseQuery({
   baseUrl:'https://kinopoiskapiunofficial.tech/',
   prepareHeaders:(headers) => {
-    // const apiKey = '47c5ae18-8e84-4e81-89f0-247648676722'
     const apiKey = '2039bf0c-b696-43f7-9d1e-def49bc997aa'
     if(apiKey) {
       headers.set('X-API-KEY',apiKey)

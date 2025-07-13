@@ -1,13 +1,13 @@
 import React from 'react';
 import { useGetFilterFilmQuery } from '../store/kinopoisk/kinopoiskApi';
+import ContentSection from '../components/ContentSection';
 
 const SeriesPage = () => {
 
-  const {data:series} = useGetFilterFilmQuery('TV_SERIES')
-  console.log(series)
+  const {data:series, isLoading:seriesLoading} = useGetFilterFilmQuery('MINI_SERIES')
   return (
-    <div>
-      series
+    <div className='bg-gray-900 p-4 min-h-screen'>
+      <ContentSection data={series} loading={seriesLoading} loadingName='Загрузка сериалов...' sectionName='Сериалы' />
     </div>
   );
 };

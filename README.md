@@ -1,5 +1,5 @@
 # KinoFlow - Online Cinema Platform 🎬
-[KinoFlow](kino-flow.vercel.app)
+[KinoFlow](https://kino-flow.vercel.app/)
 
 KinoFlow - это современный онлайн-кинотеатр
 

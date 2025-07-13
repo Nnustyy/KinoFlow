@@ -1,4 +1,6 @@
 
+
+
 export interface Film {
   filmId: number
   nameRu: string
@@ -14,6 +16,8 @@ export interface Film {
   posterUrl: string
   posterUrlPreview: string
 }
+
+
 
 export interface Country {
   country: string
@@ -51,6 +55,22 @@ export interface FilmStaff {
     items: FilmTrailer[]
   }
 
+export interface FilmItem {
+  kinopoiskId: number
+  imdbId: string
+  nameRu: string
+  nameEn: string
+  nameOriginal: string
+  countries: Country[]
+  genres: Genre[]
+  ratingKinopoisk: number
+  ratingImdb: number
+  year: number
+  type: string
+  posterUrl: string
+  posterUrlPreview: string
+}
+  
   export interface ResponseFilm {
     total: number
     totalPages: number

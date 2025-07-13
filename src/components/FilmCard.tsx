@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import type { Film} from '../models/models';
 import { useLimitedItemsQuery } from '../hooks/limitItems';
+import type { Film } from '../models/models';
 import ActorsSwiper from './ActorsSwiper'
 import FilmDetails from './FilmDetails';
 import { useGetFilmTrailerQuery } from '../store/kinopoisk/kinopoiskApi';
